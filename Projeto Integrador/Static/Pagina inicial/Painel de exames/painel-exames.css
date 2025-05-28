@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a100ff, #ff1f8f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffccf2;
+    padding: 20px 30px;
+    border-radius: 15px;
+  }
+
+  .header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .perfil {
+    position: absolute;
+    top: 5%;
+    left: 5px;
+    transform: translate(-15%);
+  }
+
+  .perfil-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .logout-btn {
+    position: absolute;
+    top: 5%;
+    right: 5px;
+    transform: translate(-50%);
+  }
+  
+  .logout-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .logout-btn img:hover {
+    transform: scale(1.2);
+  }
+
+  p {
+    background-color: #afcef7;
+    border-color: #000;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: groove;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  h1 {
+    color: #000;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    flex: 1;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
