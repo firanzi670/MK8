@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="informacoes-pessoais.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="perfil">
+       <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/3898/3898050.png" alt="Ficha Citopatológica">
+       
+      </div>
+
+      <h1>HerGuardian</h1>
+
+      <a href="../../profissional.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Dados da Anamnese</h2>
+
+        <form action="exame-clinico.html" method="GET">
+          <label>Motivo do exame*:</label>
+            <select id="motivo" name="motivo" required>
+              <option value="">Selecione</option>
+              <option value="Rastreamento">Rastreamento</option>
+              <option value="Repetição">Repetição(exame alterado ASCUS/Baixo grau)</option>
+              <option value="Seguimento">Seguimento(pós diagnóstico colposcópico/tratamento)</option>
+            </select>
+
+          <label>Fez exame preventivo anteriormente?*</label>
+          <select id="realização" name="realização" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label for="data_resultado">Data do Resultado*</label><br>
+          <input type="date" id="data_resultado" name="data_resultado"><br><br>
+
+          <label>Usa DIU?*</label>
+          <select id="diu" name="diu" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label>Está grávida?*</label>
+          <select id="gravida" name="gravida" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label>Usa pílula anticoncepcional?*</label>
+          <select id="anticoncepcional" name="anticoncepcional" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label>Usa hormônio ou remédio para tratar menopausa?*</label>
+          <select id="hormônio" name="hormônio" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label>Já fez tratamento hormonal ou radioterapia?*</label>
+          <select id="Thormonal" name="Thormonal" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+            <option value="NS">Não sabe</option>
+          </select>
+
+          <label>Data da última menstruação*:</label>
+          <input type="text" placeholder="XX/XX/XXXX ou Não lembro" required>
+
+          <label>Sangramento após relações sexuais?* (não considerar a primeira relação sexual na vida)</label>
+          <select id="SangramentoRS" name="SangramentoRS" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não, Não sabe ou Não lembra</option>
+          </select>
+
+          <label>Sangramento após menopausa?* (não considerar os sangramentos na vigência de reposição hormonal)</label>
+          <select id="SangramentoM" name="SangramentoM" required>
+            <option value="">Selecione</option>
+            <option value="S">Sim</option>
+            <option value="N">Não, Não sabe, Não lembra ou Não está na menopausa</option>
+          </select>
+
+          <div class="button-group">
+            <a href="informacoes-pessoais.html"><button type="button">Voltar</button></a>
+            <button type="submit">Avançar</button>
+            <a href="../pagina-inicial.html"><button type="button">Voltar a página inicial</button></a>
+          </div>
+        </form>
+
+    </div>
+  </div>
+</body>
+</html>
