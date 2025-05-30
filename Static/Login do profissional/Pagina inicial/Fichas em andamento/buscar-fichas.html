@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="fichas-andamento.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="perfil">
+       <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/202/202357.png" alt="Fichas em andamento">
+       
+      </div>
+
+      <h1>HerGuardian</h1>
+
+      <a href="../../profissional.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Fichas em andamento</h2>
+      <form>
+        <label>Digite o CPF ou cartão SUS da paciente com ficha em andamento*:</label>
+        <input type="text" placeholder="XXX.XXX.XXX-XX ou XXXXXXXXXXXXXXX" required maxlength="15">
+
+        <p onclick="window.location.href='continuar-ficha.html'"> 
+            Maria Fernada Rodrigues / 987.654.321-98 / 123456789123456
+        </p>
+        
+        <div class="buttons">
+          <a href="buscar-fichas.html"><button type="button">Buscar</button></a>
+          <a href="../pagina-inicial.html"><button type="button">Voltar à página inicial</button></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
