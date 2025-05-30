@@ -35,10 +35,34 @@ body, html {
   height: 50px;
 }
 
+.logout-btn {
+  position: absolute;
+  top: 7%;
+  right: 130px;
+  transform: translate(-50%);
+}
+
+.logout-btn img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.logout-btn img:hover {
+  transform: scale(1.2);
+}
+
+
 h1 {
   text-align: center;
   color: #000;
   font-style: italic;
+}
+
+h1 {
+  position: relative;
+  top: 10%;
+  right: 450px;
 }
 
 .grid {
