@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="perfil">
+        <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/256/13297/13297903.png" alt="Ficha Citopatológica">
+      </div>
+
+      <h1>HerGuardian</h1>
+
+      <a href="../../administrativo.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Cadastrar UBS</h2>
+
+      <form action="cadastro-ubs.html" method="GET">
+        <label>Nome da UBS*:</label>
+        <input type="text" placeholder="Insira o nome completo da UBS" required />
+
+        <label>CNES*:</label>
+        <input type="text" placeholder="XXXXXXX" maxlength="7" required />
+
+        <label>CNPJ da Unidade*:</label>
+        <input type="text" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="18" required />
+
+        <label>Telefone*:</label>
+        <input type="text" placeholder="XXXX-XXXX" maxlength="13" required />
+
+        <label>E-mail*:</label>
+        <input type="email" placeholder="exemplo@email.com.br" required />
+
+        <div class="button-group">
+          <a href="escolha-cadastro.html"><button type="button">Voltar</button></a>
+          <button type="submit">Salvar cadastro</button>
+          <a href="../pagina-inicial.html"><button type="button">Voltar para a página inicial</button></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
