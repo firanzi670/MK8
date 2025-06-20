@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados do Laboratório</title>
+  <link rel="stylesheet" href="informacoes-pessoais.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="perfil">
+       <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/3898/3898050.png" alt="Ficha Citopatológica">
+       
+      </div>
+
+      <h1>HerGuardian</h1>
+
+      <a href="../../profissional.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Dados do Laboratório e Resultado</h2>
+
+      <form action="/ficha/exame-laboratorial" method="POST">
+        <h2>RESULTADO DO EXAME CITOPATOLÓGICO - COLO DO ÚTERO</h2>
+
+           <label>Número do Protocolo:*</label>
+           <input name="protocolo" type="text" placeholder="Insira o número do protocolo">
+
+            <label for="amostraRejeitada">AMOSTRA REJEITADA POR:</label>
+            <select id="amostraRejeitada" name="amostraRejeitada">
+              <option value="">Selecione</option>
+              <option value="ausencia_erro_identificacao">Ausência ou erro na identificação da lâmina, frasco ou formulário</option>
+              <option value="lamina_ausente">Lâmina danificada ou ausente</option>
+              <option value="causas_alheias">Causas alheias ao laboratório</option>
+            </select>
+              <input type='text' name="amostraRejeitada" value="Outros, especificar"><br><br>
+          
+            <label>EPITÉLIOS REPRESENTADOS NA AMOSTRA:</label><br>
+            <input type="checkbox" name="epitelio" value="escamoso"> Escamoso<br>
+            <input type="checkbox" name="epitelio" value="glandular"> Glandular<br>
+            <input type="checkbox" name="epitelio" value="metaplasico"> Metaplásico<br><br>
+          
+            <label for="adequabilidade">ADEQUABILIDADE DO MATERIAL*</label><br>
+            <select id="adequabilidade" name="adequabilidade" required>
+              <option value="">Selecione</option>
+              <option value="satisfatoria">Satisfatória</option>
+              <option value="insatisfatoria_celularidade">Material escasso ou hipocelular em menos de 10% do esfregaço</option>
+              <option value="insatisfatoria_sangue">Sangue em mais de 75% do esfregaço</option>
+              <option value="insatisfatoria_picnoses">Picnoses em mais de 75% do esfregaço</option>
+              <option value="insatisfatoria_artefatos">Artefatos de dessecamento em mais de 75% do esfregaço</option>
+              <option value="insatisfatoria_contaminantes">Contaminantes externos em mais de 75% do esfregaço</option>
+              <option value="insatisfatoria_superposicao">Intensa superposição celular em mais de 75% do esfregaço</option>
+            </select>
+              <input type='text' name="adequabilidade" value="Outros, espeficiar a insastifatoria"><br><br>
+          
+            <label for="dentro_limites">DENTRO DOS LIMITES DA NORMALIDADE NO MATERIAL EXAMINADO?</label><br>
+            <select id="dentro_limites" name="dentro_limites" required>
+              <option value="">Selecione</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select><br><br>
+          
+            <label>ALTERAÇÕES CELULARES BENIGNAS REATIVAS OU REPARATIVAS:</label><br>
+            <input type="checkbox" name="alteracoes" value="inflamacao"> Inflamação<br>
+            <input type="checkbox" name="alteracoes" value="metaplasia"> Metaplasia escamosa imatura<br>
+            <input type="checkbox" name="alteracoes" value="reparacao"> Reparação<br>
+            <input type="checkbox" name="alteracoes" value="atrofia"> Atrofia com inflamação<br>
+            <input type="checkbox" name="alteracoes" value="radiacao"> Radiação<br>
+            <input type='text' name="alteracoes" value="Outros, especificar as alterações"><br><br>
+          
+            <label>MICROBIOLOGIA:</label><br>
+            <input type="checkbox" name="microbiologia" value="lactobacillus"> Lactobacillus sp<br>
+            <input type="checkbox" name="microbiologia" value="cocos"> Cocos<br>
+            <input type="checkbox" name="microbiologia" value="clamydia"> Sugestivo de Chlamydia sp<br>
+            <input type="checkbox" name="microbiologia" value="actinomyces"> Actinomyces sp<br>
+            <input type="checkbox" name="microbiologia" value="candida"> Cândida sp<br>
+            <input type="checkbox" name="microbiologia" value="trichomonas"> Trichomonas vaginalis<br>
+            <input type="checkbox" name="microbiologia" value="herpes"> Efeito citopático compatível com vírus do grupo Herpes<br>
+            <input type="checkbox" name="microbiologia" value="gardnerella"> Bacilos supracitoplasmáticos (sugestivos de Gardnerella/Mobiluncus)<br>
+            <input type='text' name="microbiologia" value="Outros bacilos">
+            <input type='text' name="microbiologia" value="Outros, especifique"><br><br>
+          
+            <label>CÉLULAS ATÍPICAS DE SIGNIFICADO INDETERMINADO</label><br>
+            <input type="checkbox" name="celulas_atipicas" value="escamosa_nao_neoplasica"> Escamosas: Possivelmente não neoplásicas (ASC-US)<br>
+            <input type="checkbox" name="celulas_atipicas" value="escamosa_lesao_alto_grau"> Escamosas: Não se pode afastar lesão de alto grau (ASC-H)<br>
+            <input type="checkbox" name="celulas_atipicas" value="glanduralres_nao_neoplasica"> Glandulares: Possivelmente não neoplásicas<br>
+            <input type="checkbox" name="celulas_atipicas" value="origem_indefinida_nao_neoplasica"> De origem indefinida: Possivelmente não neoplásicas<br>
+            <input type="checkbox" name="celulas_atipicas" value="origem_indefinida_alto_grau"> De origem indefinida: Não se pode afastar lesão de alto grau<br><br>
+          
+            <label>ATIPIAS EM CÉLULAS ESCAMOSAS</label><br>
+            <input type="checkbox" name="atipias_escamosas" value="baixo_grau"> Lesão intra-epitelial de baixo grau (HPV e neoplasia intra-epitelial cervical grau I)<br>
+            <input type="checkbox" name="atipias_escamosas" value="alto_grau_ii_iii"> Lesão intra-epitelial de alto grau (graus II e III)<br>
+            <input type="checkbox" name="atipias_escamosas" value="alto_grau_ndmi"> Lesão intra-epitelial de alto grau, não podendo excluir micro-invasão<br>
+            <input type="checkbox" name="atipias_escamosas" value="carcinoma"> Carcinoma epidermóide invasor<br><br>
+          
+            <label>ATIPIAS EM CÉLULAS GLANDULARES</label><br>
+            <input type="checkbox" name="atipias_glandulares" value="in_situ"> Adenocarcinoma "in situ"<br>
+            <input type="checkbox" name="atipias_glandulares" value="invasor_cervical"> Adenocarcinoma invasor - Cervical<br>
+            <input type="checkbox" name="atipias_glandulares" value="invasor_endometrial"> Adenocarcinoma invasor - Endometrial<br>
+            <input type="checkbox" name="atipias_glandulares" value="invasor_outros"> Adenocarcinoma invasor - Sem outros especificações<br><br>
+          
+            <input type='text' name="neoplasias" value="Outras neoplasias malignas"><br><br>
+            <input type="checkbox" name="endometriais" value="presenca_endometriais"> PRESENÇA DE CÉLULAS ENDOMETRIAIS (NA PÓS-MENOPAUSA OU ACIMA DE 40 ANOS, FORA DO PERÍODO MENSTRUAL)<br><br>
+          
+            <label for="observacoes">Observações Gerais:</label><br>
+            <textarea id="observacoes" name="observacoes" rows="4" cols="50"></textarea><br><br>
+          
+            <label for="data_resultado">Data do Resultado*</label><br>
+            <input type="date" id="data_resultado_coleta" name="data_resultado_coleta" required><br><br>
+          
+            <label for="responsavel">Responsável*</label><br>
+            <input type="text" id="responsavel_laboratorial" name="responsavel_laboratorial" required><br><br>
+
+            <div class="button-group">
+              <a href="exame-clinico.html"><button type="button">Voltar</button></a>
+              <button type="submit">Finalizar</button>
+            </div>
+          </form>
+
+    </div>
+  </div>
+
+  <script src="../../../scripts/validacao-exame-laboratorio.js"></script>
+
+</body>
+</html>

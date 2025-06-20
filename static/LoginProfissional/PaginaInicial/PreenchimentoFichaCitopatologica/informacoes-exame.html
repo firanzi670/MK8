@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="informacoes-pessoais.css">
+</head>
+<body>
+  <div class="container">
+   
+    <div class="header">
+      <div class="perfil">
+       <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/3898/3898050.png" alt="Ficha Citopatológica">
+       
+      </div>
+
+      <h1>HerGuardian</h1>
+
+      <a href="../../profissional.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+      </a>
+    </div>
+   
+    <div class="card">
+      <h2>Informações do Exame</h2>
+
+       <form action="/ficha/informacoes-exame" method="POST">
+
+        <label>UF:</label>
+        <input name="uf_exame" type="text" placeholder="XX" maxlength="2">
+
+        <label>CNES da Unidade de Saúde:</label>
+        <input name="cnes_unidade" type="text" placeholder="XXXXXXX" maxlength="7">
+
+        <label>Unidade de Saúde:</label>
+        <input name="unidade_saude" type="text" placeholder="Insira a Unidade de Saúde">
+
+        <label>Município:</label>
+        <input name="municipio_exame" type="text" placeholder="Insira o Município">
+
+        <label>Prontuário:</label>
+        <input name="prontuario" type="text" placeholder="Insira o Prontuário">
+
+        <label>Número do Protocolo:*</label>
+        <input name="protocolo" type="text" placeholder="Insira o número do protocolo">
+
+        <div class="button-group">
+          <button type="submit">Próximo</button>
+          <button onclick="window.location.href='../pagina-inicial.html'">Voltar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="../../../scripts/validacao-informacoes-exame.js"></script>
+
+</body>
+</html>
