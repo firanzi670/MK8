@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #bd08f5, #f02367);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffccf2;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .perfil {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  
+  .perfil-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .logout-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .logout-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .logout-btn img:hover {
+    transform: scale(1.2);
+  }
+  
+  h1 {
+    color: #000;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #bd08f5, #f02367);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+  }
+  
+  .info-box {
+    background-color: #ae8ce6;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  
+  section {
+    margin-bottom: 25px;
+  }
+  
+  section h2 {
+    color: #0c0006;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .resumo {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  .sintomas {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  .risco {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  .prevencao {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  .processo {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  .resultados {
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 15px;
+    text-align: center;
+  }
+  
+  .btn-voltar {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-voltar:hover {
+    background-color: #555;
+  }
+
+
+  @media (max-width: 600px) {
+    .info-box {
+      padding: 18px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    section h2 {
+      font-size: 18px;
+    }
+  
+    section p, section ul, section ol {
+      font-size: 15px;
+    }
+  
+    .btn-voltar {
+      font-size: 14px;
+      padding: 9px 18px;
+    }
+  }

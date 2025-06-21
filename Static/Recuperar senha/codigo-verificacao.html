@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="codigo-verificacao.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+
+      <h1>Recuperar senha</h1>
+      <p>Insira o código de 6 dígitos encaminhado via e-mail ou SMS:</p>
+      
+      <form action="nova-senha.html" method="GET">
+        <label for="codigo">Código*:</label>
+        <input type="text" id="codigo" name="codigo" placeholder="XXX-XXX" maxlength="7" required />
+
+        <div class="botoes">
+          <a href="recuperar-metodo.html" class="btn">Voltar</a>
+          <button type="submit" class="btn">Avançar</button>
+        </div>
+      
+      </form>
+
+    </div>
+
+  </div>
+</body>
+</html>
