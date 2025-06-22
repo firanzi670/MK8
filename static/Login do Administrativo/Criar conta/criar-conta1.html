@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="criar-conta.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Criar conta</h1>
+    <form action="criar-conta2.html" method="GET">
+      <label>Nome completo*:</label>
+      <input type="text" placeholder="Insira seu nome completo" required />
+
+      <label>CPF*:</label>
+      <input type="text" placeholder="XXX.XXX.XXX-XX" maxlength="14" required />
+
+      <label>Código de autorização*:</label>
+      <input type="text" placeholder="XXXXXXXXXX" maxlength="10" required />
+
+      <label>Telefone*:</label>
+      <input type="text" placeholder="XXXX-XXXX" maxlength="13" required />
+
+      <label>E-mail*:</label>
+      <input type="email" placeholder="exemplo@email.com.br" required />
+
+      <div class="buttons">
+        <a href="../administrativo.html" class="btn">Voltar</a>
+        <button type="submit" class="btn">Avançar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
