@@ -10,46 +10,76 @@
   <div class="container">
     <div class="header">
       <div class="perfil">
-       <img class="perfil-icon" src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-icone-azul-do-perfil-de-usuario.png" alt="Seu Perfil">
-       
+        <img class="perfil-icon" src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-icone-azul-do-perfil-de-usuario.png" alt="Seu Perfil">
       </div>
-
-      <h1>
-        HerGuardian
-      </h1>
-
+      <h1>HerGuardian</h1>
       <a href="../../profissional.html" class="logout-btn">
         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
       </a>
     </div>
 
-    <form>
+    <h2>Seu Perfil</h2>
+
+    <form id="perfilForm">
       <label>Nome completo*:</label>
-      <p> Ivan Talis da Silva </p>
-      
+      <p id="nome"></p>
+
       <label>CPF*:</label>
-      <p> 123.456.789-01 </p>
+      <p id="cpf"></p>
 
       <label>E-mail*:</label>
-      <p> ivantalis@gmail.com.br </p>
+      <p id="email"></p>
 
       <label>Telefone*:</label>
-      <p> 4002-8922 </p>
+      <p id="telefone"></p>
 
       <label>CEP*:</label>
-      <p> 63450-280 </p>
+      <p id="cep"></p>
 
       <label>CRM ou COREN*:</label>
-      <p> 123456-GO</p>
+      <p id="crm"></p>
 
       <label>Função*:</label>
-      <p> Médico </p>
-      
+      <p id="funcao"></p>
+
       <div class="buttons">
         <a href="editar.html"><button type="button">Editar</button></a>
         <a href="../pagina-inicial.html"><button type="button">Voltar à página inicial</button></a>
       </div>
     </form>
   </div>
+
+  <script>
+    async function carregarPerfil() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert("Você precisa estar logado.");
+        window.location.href = "../../profissional.html";
+        return;
+      }
+
+      const response = await fetch("http://localhost:8080/perfil", {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      });
+
+      if (response.ok) {
+        const dados = await response.json();
+        document.getElementById("nome").innerText = dados.nome_completo;
+        document.getElementById("cpf").innerText = dados.cpf;
+        document.getElementById("email").innerText = dados.email;
+        document.getElementById("telefone").innerText = dados.telefone;
+        document.getElementById("cep").innerText = dados.cep;
+        document.getElementById("crm").innerText = dados.crm_coren;
+        document.getElementById("funcao").innerText = dados.funcao_especialidade;
+      } else {
+        alert("Erro ao carregar perfil");
+        window.location.href = "../../profissional.html";
+      }
+    }
+
+    carregarPerfil();
+  </script>
 </body>
 </html>
