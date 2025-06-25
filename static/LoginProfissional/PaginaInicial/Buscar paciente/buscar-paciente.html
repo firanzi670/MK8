@@ -25,15 +25,25 @@
         <div class="card">
             <h2>Buscar Pacientes</h2>
 
-            <form action="pacientes-achados.html" method="GET">
-              <input type="text" placeholder="Digite o nome, CPF ou Cartão SUS">
-              <button>Buscar</button>
+            <form id="form-busca">
+              <input type="text" name="termo" id="termo" placeholder="Digite o nome, CPF ou Cartão SUS">
+
+              <div class="botoes-lado-a-lado">
+                 <button type="submit">Buscar</button>
+                <button type="button" onclick="window.location.href='../pagina-inicial.html'">Voltar à página inicial</button>
+              </div>
             </form>
 
-            <form action="../pagina-inicial.html" method="GET">
-              <button class="voltar">Voltar à página inicial</button>
-            </form>
         </div>
     </div>
+
+    <script>
+    document.getElementById('form-busca').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const termo = document.getElementById('termo').value;
+      window.location.href = `pacientes-achados.html?termo=${encodeURIComponent(termo)}`;
+    });
+  </script>
+
 </body>
 </html>

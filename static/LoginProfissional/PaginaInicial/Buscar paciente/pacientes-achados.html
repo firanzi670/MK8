@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Pacientes</title>
-    <link rel="stylesheet" href="buscar-paciente.css">
-    <title>HerGuardian</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HerGuardian</title>
+  <link rel="stylesheet" href="buscar-paciente.css" />
 </head>
 <body>
-    <div class="container">
-
-        <div class="header">
-            <div class="perfil">
-             <img class="perfil-icon" src="https://images.icon-icons.com/1494/PNG/512/search_102938.png" alt="Buscar pacientes">
-             
-            </div>
-      
-            <h1>HerGuardian</h1>
-      
-            <a href="../../profissional.html" class="logout-btn">
-              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
-            </a>
-        </div>
-
-
-        <div class="card">
-            <h2>Buscar Pacientes</h2>
-
-            <form>
-                <input type="text" placeholder="Digite o nome, CPF ou Cartão SUS" required>
-            </form>
-           
-           
-            <div class="b">
-
-                <p> Maria Fernada Rodrigues / 987.654.321-98 / 123456789123456</p>
-
-            </div>
-            <a href="Perfil da paciente/perfil-paciente.html"><button type="button">Acessar perfil</button></a>
-            <a href="../../Pagina Inicial/pagina-inicial.html"><button type="button">Voltar à página inicial</button></a>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="perfil">
+        <img class="perfil-icon" src="https://images.icon-icons.com/1494/PNG/512/search_102938.png" alt="Buscar pacientes"/>
+      </div>
+      <h1>HerGuardian</h1>
+      <a href="../../profissional.html" class="logout-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair"/>
+      </a>
     </div>
+
+    <div class="card">
+      <h2>Buscar Pacientes</h2>
+
+      <input type="text" id="campo-busca" readonly />
+
+      <div id="dados-paciente" class="bloco-info"></div>
+      
+      <div id="botoes" style="display: none;">
+        <a id="acessar-perfil" href="#"><button type="button">Acessar perfil</button></a>
+      </div>
+
+      <a href="../../Pagina Inicial/pagina-inicial.html">
+        <button type="button">Voltar à página inicial</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const termo = urlParams.get("termo");
+    document.getElementById("campo-busca").value = termo;
+
+    fetch(`http://localhost:8080/api/pacientes?termo=${encodeURIComponent(termo)}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Paciente não encontrado");
+        return res.json();
+      })
+      .then(data => {
+        const div = document.getElementById("dados-paciente");
+        div.innerHTML = `
+          <p><strong>Nome:</strong> ${data.nome_mulher}</p>
+          <p><strong>CPF:</strong> ${data.cpf}</p>
+          <p><strong>Cartão SUS:</strong> ${data.cartao_sus}</p>
+        `;
+        
+        const params = new URLSearchParams(data).toString();
+
+        const linkPerfil = document.getElementById("acessar-perfil");
+        linkPerfil.href = `Perfil%20da%20paciente/perfil-paciente.html?${params}`;
+
+        document.getElementById("botoes").style.display = "block";
+      })
+      .catch(err => {
+        document.getElementById("dados-paciente").textContent = "Paciente não encontrado.";
+      });
+  </script>
 </body>
 </html>
