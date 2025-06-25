@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HerGuardian</title>
-    <link rel="stylesheet" href="perfil-paciente.css">
+    <link rel="stylesheet" href="perfil-paciente.css" />
 </head>
 <body>
     <div class="container">
-
         <div class="header">
             <div class="perfil">
-             <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/5559/5559808.png" alt="pasta de exames">
-             
+                <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/5559/5559808.png" alt="pasta de exames" />
             </div>
-      
             <h1>HerGuardian</h1>
-      
             <a href="../../../profissional.html" class="logout-btn">
-              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828407.png" alt="Sair" />
             </a>
-          </div>
+        </div>
 
         <div class="card">
             <h2>Histórico de Exames</h2>
-
             <ul class="exams">
-                <li>23/04/2025 às 9:30 - UBS Crimeia Leste, Goiânia(GO) <a href="exame.html"><button type="button">Acessar</button></a></li>
-                <li>02/05/2022 às 10:30 - USF Finsocial, Goiânia(GO) <a href="exame.html"><button type="button">Acessar</button></a></li>
-                <li>10/04/2019 às 11:00 - USF Boa Vista, Goiânia(GO) <a href="exame.html"><button type="button">Acessar</button></a></li>
-                <li>05/04/2016 às 9:30 - UBS Campus Samambaia, Goiânia(GO) <a href="exame.html"><button type="button">Acessar</button></a></li>
             </ul>
 
             <div class="button-group">
@@ -38,5 +29,48 @@
             </div>
         </div>
     </div>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const cpf = params.get("cpf");
+
+        if (!cpf) {
+            alert("CPF da paciente não informado na URL!");
+            return;
+        }
+
+        fetch(`/api/exames-cpf?cpf=${cpf}`)
+            .then((res) => {
+                if (!res.ok) throw new Error("Erro ao buscar exames");
+                return res.json();
+            })
+            .then((exames) => {
+                const ul = document.querySelector(".exams");
+                ul.innerHTML = "";
+
+                if (exames.length === 0) {
+                    ul.innerHTML = "<li>Nenhum exame encontrado para esta paciente.</li>";
+                    return;
+                }
+
+                exames.forEach((exame) => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        Protocolo: ${exame.protocolo}<br>
+                        Unidade: ${exame.local}<br>
+                        Município: ${exame.municipio} - ${exame.uf}<br>
+                        Prontuário: ${exame.prontuario}
+                        <hr>
+                    `;
+                    ul.appendChild(li);
+                });
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
+    });
+</script>
+
 </body>
 </html>

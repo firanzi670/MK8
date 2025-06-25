@@ -195,5 +195,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+window.addEventListener("DOMContentLoaded", async () => {
+  const params = new URLSearchParams(window.location.search);
+  const exameId = params.get("id");
+
+  if (!exameId) {
+    alert("ID do exame não informado.");
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/exame?id=${exameId}`);
+    if (!res.ok) throw new Error("Erro ao buscar exame");
+
+    const dados = await res.json();
+
+    Object.entries(dados).forEach(([key, value]) => {
+      if(value === null) value = "";
+      const el = document.querySelector(`[name=${CSS.escape(key)}]`);
+      if (el) {
+        if (el.type === "checkbox") {
+          el.checked = Array.isArray(value) ? value.includes(el.value) : el.value === value;
+        } else if (el.tagName === "SELECT") {
+          el.value = value;
+        } else if (el.tagName === "TEXTAREA") {
+          el.value = value;
+        } else {
+          el.value = value;
+        }
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao carregar dados do exame.");
+  }
+});
+</script>
+
 </body>
 </html>
