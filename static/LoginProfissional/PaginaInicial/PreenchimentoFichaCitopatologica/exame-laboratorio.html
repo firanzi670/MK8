@@ -127,5 +127,13 @@
 
   <script src="../../../scripts/validacao-exame-laboratorio.js"></script>
 
+  <script>
+    const outros = document.getElementById("Outros").value;
+
+    if (outros.trim() !== "") {
+      dados.outros = outros;
+    }
+  </script>
+
 </body>
 </html>
