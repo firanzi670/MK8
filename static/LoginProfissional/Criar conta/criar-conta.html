@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Conta | HerGuardian</title>
+  <link rel="stylesheet" href="criar-conta.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Criar conta</h1>
+    <form id="formCriarConta">
+      <label>Nome completo*:</label>
+      <input type="text" id="nome" required placeholder="Insira seu nome completo" />
+
+      <label>CPF*:</label>
+      <input type="text" id="cpf" maxlength="14" required placeholder="XXX.XXX.XXX-XX" />
+
+      <label>Código de autorização*:</label>
+      <input type="text" id="codigo" maxlength="10" required placeholder="XXXXXXXXXX" />
+
+      <label>Telefone*:</label>
+      <input type="text" id="telefone" maxlength="13" required placeholder="XXXX-XXXX" />
+
+      <label>E-mail*:</label>
+      <input type="email" id="email" required placeholder="exemplo@email.com.br" />
+
+      <label>CEP*:</label>
+      <input type="text" id="cep" maxlength="9" required placeholder="XXXXX-XXX" />
+
+      <label>CRM ou COREN*:</label>
+      <input type="text" id="crm" maxlength="15" required placeholder="XXXXXX-XX ou XXXXXX-COREN-XX" />
+
+      <label>Função ou especialidade*:</label>
+      <input type="text" id="funcao" required placeholder="Enfermeira, médico..." />
+
+      <label>Senha*:</label>
+      <input type="password" id="senha" required placeholder="Insira sua senha" />
+
+      <label>Confirmação de senha*:</label>
+      <input type="password" id="confirmarSenha" required placeholder="Confirme sua senha" />
+
+      <div class="buttons">
+        <a href="../profissional.html" class="btn">Voltar</a>
+        <button type="submit" class="btn">Criar conta</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('formCriarConta').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+      if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem!");
+        return;
+      }
+
+      const dados = {
+        nome_completo: document.getElementById('nome').value,
+        cpf: document.getElementById('cpf').value,
+        codigo_autorizacao: document.getElementById('codigo').value,
+        telefone: document.getElementById('telefone').value,
+        email: document.getElementById('email').value,
+        cep: document.getElementById('cep').value,
+        crm_coren: document.getElementById('crm').value,
+        funcao_especialidade: document.getElementById('funcao').value,
+        senha: senha
+      };
+
+      const response = await fetch('http://localhost:8080/criar-conta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+
+      const res = await response.json();
+
+      if (response.ok) {
+        alert("Conta criada com sucesso!");
+        window.location.href = "../profissional.html";
+      } else {
+        alert("Erro ao criar conta: " + (res.message || "Tente novamente"));
+      }
+    });
+  </script>
+</body>
+</html>
