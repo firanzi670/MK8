@@ -4,7 +4,12 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
+	"strings"
 )
+
+type ExameLaboratorial struct {
+	Outros string
+}
 
 func InformacoesExame(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -213,6 +218,10 @@ func Exame_laboratorial(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
+		exame := ExameLaboratorial{
+			Outros: r.FormValue("outros"),
+		}
+
 		err := r.ParseForm()
 
 		log.Println("Valores recebidos do formulário:")
@@ -226,13 +235,20 @@ func Exame_laboratorial(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
+		var valorOutros sql.NullString
+		if strings.TrimSpace(exame.Outros) != "" {
+			valorOutros = sql.NullString{String: exame.Outros, Valid: true}
+		} else {
+			valorOutros = sql.NullString{Valid: false}
+		}
+
 		protocolo := r.FormValue("protocolo")
 
 		_, err = db.Exec(`INSERT INTO exame_laboratorial (
             protocolo, amostraRejeitada, epitelio, adequabilidade, dentro_limites, alteracoes, microbiologia, 
             celulas_atipicas, atipias_escamosas, atipias_glandulares, neoplasias, endometriais,
-            observacoes, data_resultado_coleta, responsavel_laboratorial
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)`,
+            observacoes, data_resultado_coleta, responsavel_laboratorial, outros
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`,
 			protocolo,
 			r.FormValue("amostraRejeitada"),
 			r.FormValue("epitelio"),
@@ -248,6 +264,7 @@ func Exame_laboratorial(db *sql.DB) http.HandlerFunc {
 			r.FormValue("observacoes"),
 			r.FormValue("data_resultado_coleta"),
 			r.FormValue("responsavel_laboratorial"),
+			valorOutros,
 		)
 
 		if err != nil {
