@@ -11,7 +11,7 @@
     <div class="login-card">
       <h1>Entrar</h1>
 
-      <form action="PaginaInicial/pagina-inicial.html" method="POST">
+      <form id="loginForm">
         <label for="cpf">CPF*:</label>
         <input type="text" id="cpf" name="cpf" placeholder="Insira seu CPF aqui" maxlength="14" required />
       
@@ -23,12 +23,37 @@
 
          <div class="links">
            <a href="../Recuperar senha/recuperar.html">Esqueci minha senha</a>
-           <a href="Criar conta/criar-conta1.html">Criar conta</a>
+           <a href="Criar conta/criar-conta.html">Criar conta</a>
          </div>
     </div>
   </div>   
 
-  <script src="../../Js/valida-login.js"></script>
+  <script>
+document.getElementById('loginForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const cpf = document.getElementById('cpf').value;
+  const senha = document.getElementById('senha').value;
+
+  const response = await fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ cpf, senha })
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    localStorage.setItem('token', data.token);
+    alert('Login realizado com sucesso!');
+    window.location.href = 'PaginaInicial/pagina-inicial.html'; 
+  } else {
+    alert('Erro ao fazer login: ' + (data.message || 'CPF ou senha inválidos.'));
+  }
+});
+</script>
 
 </body>
 </html>
