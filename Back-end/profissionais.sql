@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public-profissionais
+CREATE TABLE IF NOT EXISTS public-profissionais (
   id SERIAL PRIMARY KEY, 
   nome TEXT NOT NULL,
   cpf TEXT UNIQUE NOT NULL, 
